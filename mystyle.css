@@ -5,6 +5,7 @@
 
 * {
     margin: 0px;
+    
 
 }
 body {
@@ -147,3 +148,6 @@ h1 {
 .edit:hover, .del:hover {
     opacity: 0.8;
 } 
+*{
+    font-size: large;
+}

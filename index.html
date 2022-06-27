@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Listt</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <div class="container">
+        <div class="addtask">
+            <h1>My To-Do List</h1>
+            <input type="text.number" placeholder="Enter Your Task"
+                id="nutt">
+            <button id="add" onclick="firstfun(this)">Add</button>
+        </div>
+        <p>Task List</p>
+        <div class="tasks"></div>
+    </div>
+    <script>
+        let c = document.querySelector("#nutt");
+        let h = document.querySelector(".tasks");
+        let task = c.value;
+        function firstfun(x){
+            if(!c.value){
+                alert("Please Input task");
+                return;
+            }
+            let n = document.createElement("div")
+            n.classList.add("child")
+            let e = document.createElement("input")
+            e.type="text"
+            e.value = c.value
+            e.setAttribute("readonly", "readonly")
+            e.classList.add("list")
+            n.appendChild(e)
+            h.appendChild(n)
+            let d = document.createElement("button")
+            d.innerText="Del"
+            d.classList.add("del")
+            n.appendChild(d)
+            let u = document.createElement("button")
+            u.classList.add("edit")
+            u.innerText="Edit"
+            
+            n.appendChild(u)
+            c.value=""
+
+            u.addEventListener('click', () => {
+                if (u.innerText == "Edit"){
+                    u.innerText="Save"
+                    e.removeAttribute("readonly")
+                    e.focus()
+                }
+                else{
+                    e.setAttribute("readonly", "readonly")
+                    u.innerHTML="Edit"
+                }
+            })
+            d.addEventListener('click', () => {
+                n.style.display="none"
+            })
+        }
+        
+    </script>
+</body>
+</html>
